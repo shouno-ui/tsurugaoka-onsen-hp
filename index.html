@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>つるが丘温泉 | 大阪市東住吉区 創業67年の銭湯</title>
+  <meta name="description" content="つるが丘温泉は大阪市東住吉区で創業67年。JR鶴ヶ丘駅から徒歩3分。季節の露天風呂、深さ100cmの水風呂、サウナなど充実の設備でお待ちしています。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #1a1a1a;
+      --white: #faf9f7;
+      --cream: #f5f0e8;
+      --warm-gray: #8c8478;
+      --light-gray: #d4cfc7;
+      --accent: #3a3632;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Zen Maru Gothic', 'Noto Serif JP', serif;
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(250, 249, 247, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--light-gray);
+      transition: transform 0.3s;
+    }
+
+    nav .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav .nav-logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    nav .nav-logo img {
+      height: 36px;
+      width: auto;
+      mix-blend-mode: multiply;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--black);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--black);
+      transition: width 0.3s;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--black);
+      transition: 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--white);
+      position: relative;
+      padding: 2rem;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(212, 207, 199, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(212, 207, 199, 0.2) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-logo {
+      width: auto;
+      height: auto;
+      max-width: 280px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 1s 0.3s forwards;
+      mix-blend-mode: multiply;
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      color: var(--warm-gray);
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 1s 0.9s forwards;
+    }
+
+    .hero-sub {
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      letter-spacing: 0.1em;
+      opacity: 0;
+      animation: fadeUp 1s 1.1s forwards;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 1s 1.4s forwards;
+    }
+
+    .hero-scroll span {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--warm-gray);
+    }
+
+    .hero-scroll .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: var(--light-gray);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-scroll .scroll-line::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      width: 1px;
+      height: 100%;
+      background: var(--black);
+      animation: scrollDown 2s infinite;
+    }
+
+    @keyframes scrollDown {
+      0% { top: -100%; }
+      100% { top: 100%; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: var(--warm-gray);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      margin-bottom: 3rem;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--black);
+      margin-top: 1rem;
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      background: var(--cream);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 0.95rem;
+      line-height: 2.2;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .about-stat {
+      text-align: center;
+    }
+
+    .about-stat .number {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      display: block;
+      line-height: 1.2;
+    }
+
+    .about-stat .unit {
+      font-size: 0.8rem;
+      color: var(--warm-gray);
+      letter-spacing: 0.1em;
+    }
+
+    .about-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .about-visual .enso {
+      width: 280px;
+      height: 280px;
+      border: 2px solid var(--light-gray);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .about-visual .enso::before {
+      content: '';
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 1px solid rgba(212, 207, 199, 0.5);
+    }
+
+    .about-visual .enso-text {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.2em;
+      text-align: center;
+      line-height: 2;
+    }
+
+    /* ===== BATHS ===== */
+    .baths {
+      background: var(--white);
+    }
+
+    .bath-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .bath-card {
+      background: var(--cream);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .bath-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    }
+
+    .bath-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--black);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s;
+    }
+
+    .bath-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .bath-card .bath-number {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.75rem;
+      color: var(--light-gray);
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .bath-card h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+
+    .bath-card p {
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      line-height: 1.8;
+    }
+
+    .bath-card .bath-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bath-card .bath-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .bath-card.featured {
+      background: var(--black);
+      color: var(--white);
+      grid-column: span 1;
+    }
+
+    .bath-card.featured p {
+      color: var(--light-gray);
+    }
+
+    .bath-card.featured .bath-number {
+      color: var(--warm-gray);
+    }
+
+    .bath-card.featured::before {
+      background: var(--white);
+    }
+
+    .bath-highlight {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .highlight-card {
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .highlight-card.rotenburo {
+      background: linear-gradient(135deg, #e8e2d6 0%, #d4cfc7 100%);
+    }
+
+    .highlight-card.mizuburo {
+      background: linear-gradient(135deg, #d6dde8 0%, #c7cdd4 100%);
+    }
+
+    .highlight-card .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .highlight-card h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+
+    .highlight-card p {
+      font-size: 0.9rem;
+      line-height: 2;
+      color: var(--accent);
+    }
+
+    .highlight-card .depth {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      position: absolute;
+      bottom: 1rem;
+      right: 2rem;
+      opacity: 0.15;
+      line-height: 1;
+    }
+
+    /* ===== SAUNA ===== */
+    .sauna {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .sauna .section-label {
+      color: var(--warm-gray);
+    }
+
+    .sauna .section-title::after {
+      background: var(--white);
+    }
+
+    .sauna-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .sauna-card {
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 3rem;
+      transition: border-color 0.3s;
+    }
+
+    .sauna-card:hover {
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .sauna-card h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+
+    .sauna-card p {
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      line-height: 2;
+    }
+
+    .sauna-card .sauna-type {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--warm-gray);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ===== ACCESS ===== */
+    .access {
+      background: var(--cream);
+    }
+
+    .access-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .access-info dl {
+      margin-bottom: 2rem;
+    }
+
+    .access-info dt {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--warm-gray);
+      margin-bottom: 0.3rem;
+    }
+
+    .access-info dd {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .access-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--black);
+      color: var(--white);
+      padding: 0.6rem 1.2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      margin-top: 1rem;
+    }
+
+    .access-badge svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .access-map {
+      background: var(--light-gray);
+      min-height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .access-map iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 350px;
+      border: 0;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-brand img {
+      height: 40px;
+      width: auto;
+      filter: invert(1);
+      mix-blend-mode: screen;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links a {
+      color: var(--warm-gray);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: var(--warm-gray);
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s, transform 0.8s;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(250, 249, 247, 0.98);
+        flex-direction: column;
+        padding: 1.5rem 2rem;
+        gap: 1.2rem;
+        border-bottom: 1px solid var(--light-gray);
+      }
+
+      nav ul.open {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero-logo {
+        max-width: 200px;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .about-visual {
+        order: -1;
+      }
+
+      .about-visual .enso {
+        width: 200px;
+        height: 200px;
+      }
+
+      .about-visual .enso::before {
+        width: 180px;
+        height: 180px;
+      }
+
+      .bath-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bath-highlight {
+        grid-template-columns: 1fr;
+      }
+
+      .sauna-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .access-content {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .about-stats {
+        justify-content: center;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+    }
+
+    /* ===== WAVE DIVIDER ===== */
+    .wave-divider {
+      height: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wave-divider svg {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+    }
+
+    /* ===== SEASONAL BADGE ===== */
+    .seasonal-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--warm-gray);
+      padding: 4px 12px;
+      border: 1px solid var(--light-gray);
+      border-radius: 2px;
+    }
+
+    .seasonal-dot {
+      width: 6px;
+      height: 6px;
+      background: #b8a88a;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo"><img src="images/IMG_3299.JPG" alt="つるが丘温泉"></a>
+      <div class="hamburger" onclick="this.classList.toggle('active');document.querySelector('nav ul').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </div>
+      <ul>
+        <li><a href="#about">当湯について</a></li>
+        <li><a href="#baths">お風呂</a></li>
+        <li><a href="#sauna">サウナ</a></li>
+        <li><a href="#access">アクセス</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img class="hero-logo" src="images/IMG_3301.JPG" alt="つるが丘温泉">
+    <p class="hero-tagline">ゆったり、ほっこり。</p>
+    <p class="hero-sub">創業六十七年 ── 大阪・鶴ヶ丘の湯</p>
+    <div class="hero-scroll">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-inner">
+      <p class="section-label">About</p>
+      <h2 class="section-title fade-in">当湯について</h2>
+      <div class="about-content">
+        <div class="about-text fade-in">
+          <p>
+            昭和の時代から、この地で湯を沸かし続けて六十七年。<br>
+            つるが丘温泉は、大阪市東住吉区・JR鶴ヶ丘駅のすぐそばで<br>
+            地域の皆さまの憩いの場として愛されてきました。
+          </p>
+          <p>
+            四季を感じる露天風呂、深さ100cmのこだわり水風呂、<br>
+            そして心地よいサウナ。日々の疲れをゆっくりと<br>
+            洗い流していただける空間をご用意しています。
+          </p>
+          <div class="about-stats">
+            <div class="about-stat">
+              <span class="number">67</span>
+              <span class="unit">年の歴史</span>
+            </div>
+            <div class="about-stat">
+              <span class="number">3</span>
+              <span class="unit">分（駅から）</span>
+            </div>
+            <div class="about-stat">
+              <span class="number">100</span>
+              <span class="unit">cm水風呂</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual fade-in">
+          <div class="enso">
+            <div class="enso-text">
+              心も体も<br>ほぐれる湯
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BATHS -->
+  <section class="baths" id="baths">
+    <div class="section-inner">
+      <p class="section-label">Baths</p>
+      <h2 class="section-title fade-in">お風呂</h2>
+
+      <div class="bath-grid">
+        <div class="bath-card fade-in">
+          <div class="bath-number">01</div>
+          <div class="bath-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#1a1a1a" stroke-width="2">
+              <path d="M8 28h32v2c0 6-6 12-16 12S8 36 8 30v-2z"/>
+              <path d="M16 28v-8c0-2 2-4 4-4h0c2 0 4 2 4 4"/>
+              <path d="M14 12c2-2 4-2 6 0" opacity="0.4"/>
+              <path d="M22 10c2-2 4-2 6 0" opacity="0.4"/>
+            </svg>
+          </div>
+          <h3>主湯</h3>
+          <p>温かい湯に身を委ね、<br>一日の疲れを芯からほぐす。<br>つるが丘温泉の基本のお湯。</p>
+        </div>
+
+        <div class="bath-card fade-in">
+          <div class="bath-number">02</div>
+          <div class="bath-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#1a1a1a" stroke-width="2">
+              <path d="M8 28h32v2c0 6-6 12-16 12S8 36 8 30v-2z"/>
+              <circle cx="16" cy="32" r="1.5" fill="#1a1a1a"/>
+              <circle cx="24" cy="34" r="1.5" fill="#1a1a1a"/>
+              <circle cx="32" cy="32" r="1.5" fill="#1a1a1a"/>
+              <path d="M14 32l2-1 2 1m4 1l2-1 2 1m4-1l2-1 2 1" opacity="0.4"/>
+            </svg>
+          </div>
+          <h3>ジェット風呂</h3>
+          <p>力強いジェット水流が<br>全身をマッサージ。<br>肩こり・腰痛に。</p>
+        </div>
+
+        <div class="bath-card fade-in">
+          <div class="bath-number">03</div>
+          <div class="bath-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#1a1a1a" stroke-width="2">
+              <path d="M8 28h32v2c0 6-6 12-16 12S8 36 8 30v-2z"/>
+              <path d="M18 30v-4m6 4v-6m6 6v-4" stroke-dasharray="2 2"/>
+              <path d="M20 22l4-6 4 6" opacity="0.4"/>
+            </svg>
+          </div>
+          <h3>電気風呂</h3>
+          <p>微弱な電気刺激が<br>筋肉をやさしくほぐし、<br>血行を促進します。</p>
+        </div>
+
+        <div class="bath-card fade-in">
+          <div class="bath-number">04</div>
+          <div class="bath-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#1a1a1a" stroke-width="2">
+              <path d="M12 30h24v1c0 4-4 9-12 9s-12-5-12-9v-1z"/>
+              <path d="M18 20c0-2 2-3 3-3s3 1 3 3"/>
+              <circle cx="24" cy="24" r="1" fill="#1a1a1a"/>
+            </svg>
+          </div>
+          <h3>子供風呂</h3>
+          <p>お子さまも安心して<br>入れる浅めの湯船。<br>ご家族でお楽しみください。</p>
+        </div>
+
+        <div class="bath-card featured fade-in">
+          <div class="bath-number">05 ── RECOMMENDED</div>
+          <div class="bath-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#faf9f7" stroke-width="2">
+              <path d="M8 28h32v2c0 6-6 12-16 12S8 36 8 30v-2z"/>
+              <path d="M18 26c0-8 6-14 6-14s6 6 6 14" opacity="0.3"/>
+              <path d="M20 30v8m4-10v10m4-8v8" stroke-dasharray="1 3"/>
+            </svg>
+          </div>
+          <h3>水風呂</h3>
+          <p>深さ100cm。全身をすっぽりと<br>包み込む深水風呂。<br>サウナ後の一杯ならぬ一浴を。</p>
+        </div>
+
+        <div class="bath-card fade-in">
+          <div class="bath-number">06 ── SEASONAL</div>
+          <div class="bath-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#1a1a1a" stroke-width="2">
+              <path d="M4 28h40v2c0 7-8 14-20 14S4 37 4 30v-2z"/>
+              <circle cx="24" cy="16" r="8" opacity="0.2"/>
+              <path d="M20 14c1-2 3-3 4-3s3 1 4 3" opacity="0.4"/>
+              <path d="M16 18h16" opacity="0.2"/>
+            </svg>
+          </div>
+          <h3>露天風呂</h3>
+          <p>季節ごとに変わるお湯で<br>四季の移ろいを肌で感じる。<br>空を見上げながらの入浴を。</p>
+          <div style="margin-top:1rem">
+            <span class="seasonal-label"><span class="seasonal-dot"></span>季節風呂として運用</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bath-highlight">
+        <div class="highlight-card rotenburo fade-in">
+          <span class="tag">SEASONAL BATH</span>
+          <h3>季節の露天風呂</h3>
+          <p>
+            春は桜湯、夏はハッカ湯、<br>
+            秋はゆず湯、冬は酒粕湯──<br>
+            四季折々の香りと効能をお届けします。
+          </p>
+        </div>
+        <div class="highlight-card mizuburo fade-in">
+          <span class="tag">DEEP WATER</span>
+          <h3>深さ100cmの水風呂</h3>
+          <p>
+            肩までしっかり浸かれる深さ。<br>
+            サウナで温まった体を<br>
+            一気にクールダウン。
+          </p>
+          <span class="depth">100cm</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAUNA -->
+  <section class="sauna" id="sauna">
+    <div class="section-inner">
+      <p class="section-label">Sauna</p>
+      <h2 class="section-title fade-in">サウナ</h2>
+
+      <div class="sauna-grid">
+        <div class="sauna-card fade-in">
+          <p class="sauna-type">DRY SAUNA</p>
+          <h3>サウナ</h3>
+          <p>
+            しっかりと汗をかける高温サウナ。<br>
+            じっくりと体の芯まで温まり、<br>
+            深さ100cmの水風呂との交互浴で<br>
+            「ととのう」体験をお楽しみください。
+          </p>
+        </div>
+        <div class="sauna-card fade-in">
+          <p class="sauna-type">STEAM SAUNA</p>
+          <h3>スチームサウナ</h3>
+          <p>
+            湿度の高いやさしい蒸気で<br>
+            お肌をしっとりと潤す。<br>
+            低温でゆっくりリラックスしたい方に<br>
+            おすすめです。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESS -->
+  <section class="access" id="access">
+    <div class="section-inner">
+      <p class="section-label">Access</p>
+      <h2 class="section-title fade-in">アクセス</h2>
+
+      <div class="access-content">
+        <div class="access-info fade-in">
+          <dl>
+            <dt>住所</dt>
+            <dd>
+              〒546-0035<br>
+              大阪府大阪市東住吉区山坂5-4-13
+            </dd>
+
+            <dt>最寄り駅</dt>
+            <dd>JR阪和線 鶴ヶ丘駅</dd>
+
+            <dt>駅からのアクセス</dt>
+            <dd>
+              <div class="access-badge">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="8" cy="8" r="6"/>
+                  <path d="M8 5v3l2 2"/>
+                </svg>
+                徒歩 3分
+              </div>
+            </dd>
+          </dl>
+        </div>
+        <div class="access-map fade-in">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.5!2d135.517!3d34.623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDM3JzIzLjAiTiAxMzXCsDMxJzAyLjAiRQ!5e0!3m2!1sja!2sjp!4v1"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand"><img src="images/IMG_3299.JPG" alt="つるが丘温泉"></div>
+        <div class="footer-links">
+          <a href="#about">当湯について</a>
+          <a href="#baths">お風呂</a>
+          <a href="#sauna">サウナ</a>
+          <a href="#access">アクセス</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; つるが丘温泉 All rights reserved.</p>
+        <p>〒546-0035 大阪府大阪市東住吉区山坂5-4-13</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
